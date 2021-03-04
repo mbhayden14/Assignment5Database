@@ -10,14 +10,16 @@
 
 
 <body>
-
+    <!--Add navbar-->
     <div class="bg-dark text-white p-2">
         <span class="navbar-brand ml-2">Online Bookstore</span>
     </div>
 
+    <!--Add vertical nav menu and get website info-->
     <div class="row m-1 p-1">
         <div id="blah" class="col-3">
             <h1>Here are the books in our online bookstore</h1>
+            <vc:navigation-menu />
         </div>
         <div class="col-9">
             @RenderBody()

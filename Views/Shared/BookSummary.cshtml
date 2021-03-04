@@ -1,0 +1,42 @@
+﻿@model Project
+
+<!--Layout for each "card" of book info on the site-->
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <!--Add media header with stock photo-->
+        <div class="media">
+            <img src="~/img/book_open.png" width="64" class="mr-3" alt="Book Icon">
+            <div class="media-body">
+                <!--Add great read badge to each-->
+                <h5 class="mt-0">Book Title #@Model.BookID: @Model.Title&nbsp&nbsp&nbsp<span class="badge badge-success">Great Read!</span></h5>
+                <!--Implement flex boxes to design/center all the book information-->
+                <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
+                    <div class="p-2 bd-highlight">Author Name:&nbsp&nbsp&nbsp @Model.AuthorFirst</div>
+                    <!--Only add middle name if it exists-->
+                    @if (Model.AuthorMiddle != "")
+                    {
+                        <div class="p-2 bd-highlight">@Model.AuthorMiddle</div>
+                    }
+                    <div class="p-2 bd-highlight">@Model.AuthorLast</div>
+                </div>
+                <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
+                    <div class="p-2 bd-highlight">Publisher: @Model.Publisher</div>
+                    <div class="p-2 bd-highlight">&nbsp&nbsp|&nbsp&nbsp</div>
+                    <div class="p-2 bd-highlight">ISBN: @Model.ISBN</div>
+                </div>
+                <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
+                    <div class="p-2 bd-highlight">Classification: @Model.Classification</div>
+                    <div class="p-2 bd-highlight">&nbsp&nbsp|&nbsp&nbsp</div>
+                    <div class="p-2 bd-highlight">Category: @Model.Category</div>
+                </div>
+                <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
+                    <div class="p-2 bd-highlight">Number of Pages: @Model.NumPages</div>
+                    <div class="p-2 bd-highlight">&nbsp&nbsp|&nbsp&nbsp</div>
+                    <div class="p-2 bd-highlight">Price: $@Model.Price</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

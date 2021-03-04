@@ -9,5 +9,6 @@ namespace Assignment5Database.Models.ViewModels
     {
         public IEnumerable<Project> Projects { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string Category { get; set; }
     }
 }

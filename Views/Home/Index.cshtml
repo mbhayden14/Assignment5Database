@@ -6,49 +6,14 @@
 @model ProjectListViewModel
 
 
-
+<!--Pull in information from partial view-->
 @foreach (var x in Model.Projects)
 {
-
-
-    <div class="card card-outline-primary m-1 p-1">
-        <div class="bg-faded p-1">
-            <div class="media">
-                <img src="~/img/book_open.png" width="64" class="mr-3" alt="Book Icon">
-                <div class="media-body">
-                    <h5 class="mt-0">Book Title #@x.BookID: @x.Title&nbsp&nbsp&nbsp<span class="badge badge-success">Great Read!</span></h5>
-                    <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
-                        <div class="p-2 bd-highlight">Author Name:&nbsp&nbsp&nbsp @x.AuthorFirst</div>
-                        @if (x.AuthorMiddle != "")
-                        {
-                            <div class="p-2 bd-highlight">@x.AuthorMiddle</div>
-                        }
-                        <div class="p-2 bd-highlight">@x.AuthorLast</div>
-                    </div>
-                    <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
-                        <div class="p-2 bd-highlight">Publisher: @x.Publisher</div>
-                        <div class="p-2 bd-highlight">&nbsp&nbsp|&nbsp&nbsp</div>
-                        <div class="p-2 bd-highlight">ISBN: @x.ISBN</div>
-                    </div>
-                    <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
-                        <div class="p-2 bd-highlight">Classification: @x.Classification</div>
-                        <div class="p-2 bd-highlight">&nbsp&nbsp|&nbsp&nbsp</div>
-                        <div class="p-2 bd-highlight">Category: @x.Category</div>
-                    </div>
-                    <div class="d-flex justify-content-start flex-nowrap bd-highlight mb-3 ">
-                        <div class="p-2 bd-highlight">Number of Pages: @x.NumPages</div>
-                        <div class="p-2 bd-highlight">&nbsp&nbsp|&nbsp&nbsp</div>
-                        <div class="p-2 bd-highlight">Price: $@x.Price</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <partial name="BookSummary" model="x" />
 }
 
 
-
+<!--Add page buttons to the bottom of the page-->
 <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
-     page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-url-category="@Model.Category"
      class="btn-group pull-right m-1"></div>

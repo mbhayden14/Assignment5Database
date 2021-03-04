@@ -19,11 +19,12 @@ namespace Assignment5Database.Models
             {
                 context.Database.Migrate();
             }
-
+            //Add the following books to the database
             if(!context.Projects.Any())
             {
                 context.Projects.AddRange(
 
+                    //Prof Hilton's books
                     new Project
                     {
                         Title = "Les Miserables",
@@ -75,7 +76,7 @@ namespace Assignment5Database.Models
                         Publisher = "Random House",
                         ISBN = "978-0812981254",
                         Classification = "Non-Fiction",
-                        Category = "NBiography",
+                        Category = "Biography",
                         NumPages = 864,
                         Price = 11.61
                     },
@@ -164,6 +165,7 @@ namespace Assignment5Database.Models
                         Price = 15.03
                     },
 
+                    //My added books
                     new Project
                     {
                         Title = "The Way of Kings",
